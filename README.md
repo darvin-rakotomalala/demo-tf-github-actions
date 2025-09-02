@@ -31,16 +31,17 @@ Troubleshooting GitHub Actions Workflows can be cumbersome due to the complexity
 
 Using Terraform in GitHub Actions can be a powerful way to implement IaC in a CI/CD pipeline. Here are some best practices you should follow when you are defining the workflow:
 
-1. **_Use Remote State_**: Store state files in S3 or Terraform Cloud.
-2. **_Enable Manual Approvals_**: Require approval for terraform apply. 3.**Secure Secrets**: Use CI/CD tools’ secret management features.
-3. **Test Changes**: Run terraform plan on pull requests.
-4. **Use a specific Terraform version** — This ensures consistency across different runs and helps in avoiding unexpected behaviors due to upgrades.
-5. **Take advantage of remote state** — State files can contain sensitive information, so use a secure storage such as AWS S3, Azure Blob Storage, or others to ensure your data is encrypted. Also, implement state locking to avoid conflicts. If you don’t use a remote state, your infrastructure will be created every time you run an apply, as your configuration won’t be aware that the infrastructure was created before.
-6. **Use dynamic credentials** — The best way to authenticate to your cloud provider is by leveraging dynamic credentials, as they are short-lived and protect against breaches.
-7. **Use environment variables for secrets if you are not using dynamic credentials** — This will ensure that at least you are not hardcoding sensitive information.
-8. **Automate formatting and validation** — This will reduce the time and costs associated with your runs, as you will be able to identify errors before even running a Terraform plan.
-9. **Integrate security vulnerability scanning tools** — In the long run, when you scale, you will add security vulnerabilities in your code without even noticing. That’s why security vulnerability scanning tools are really helpful. as you can see these vulnerabilities before deploying the actual code
-10. **Create a plan → apply workflow** — It is imperative to see what’s going to change, before actually making the change, as you can make multiple mistakes with your code changes. Also, commenting the plan on a pull-request and ensuring that all engineers involved in the process review it thoroughly is crucial.
-11. **Implement RBAC** — Ensure your runner has only the necessary permissions to run the tasks you want. Use RBAC on the cloud provider side to manage what actions Terraform can perform.
-12. **Test your code** — Take advantage of Terratest or Terraform’s native test framework to ensure your infrastructure changes work as expected.
-13. **Implement OPA policies** — Policies can help you with ensuring all your organization’s standards are met.
+1. **Use Remote State**: Store state files in S3 or Terraform Cloud.
+2. **Enable Manual Approvals**: Require approval for terraform apply.
+3. **Secure Secrets**: Use CI/CD tools’ secret management features.
+4. **Test Changes**: Run terraform plan on pull requests.
+5. **Use a specific Terraform version** — This ensures consistency across different runs and helps in avoiding unexpected behaviors due to upgrades.
+6. **Take advantage of remote state** — State files can contain sensitive information, so use a secure storage such as AWS S3, Azure Blob Storage, or others to ensure your data is encrypted. Also, implement state locking to avoid conflicts. If you don’t use a remote state, your infrastructure will be created every time you run an apply, as your configuration won’t be aware that the infrastructure was created before.
+7. **Use dynamic credentials** — The best way to authenticate to your cloud provider is by leveraging dynamic credentials, as they are short-lived and protect against breaches.
+8. **Use environment variables for secrets if you are not using dynamic credentials** — This will ensure that at least you are not hardcoding sensitive information.
+9. **Automate formatting and validation** — This will reduce the time and costs associated with your runs, as you will be able to identify errors before even running a Terraform plan.
+10. **Integrate security vulnerability scanning tools** — In the long run, when you scale, you will add security vulnerabilities in your code without even noticing. That’s why security vulnerability scanning tools are really helpful. as you can see these vulnerabilities before deploying the actual code
+11. **Create a plan → apply workflow** — It is imperative to see what’s going to change, before actually making the change, as you can make multiple mistakes with your code changes. Also, commenting the plan on a pull-request and ensuring that all engineers involved in the process review it thoroughly is crucial.
+12. **Implement RBAC** — Ensure your runner has only the necessary permissions to run the tasks you want. Use RBAC on the cloud provider side to manage what actions Terraform can perform.
+13. **Test your code** — Take advantage of Terratest or Terraform’s native test framework to ensure your infrastructure changes work as expected.
+14. **Implement OPA policies** — Policies can help you with ensuring all your organization’s standards are met.
