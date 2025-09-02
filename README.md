@@ -4,9 +4,9 @@ In this repository, we will explore managing infrastructure with Terraform and G
 
 **Why Automate Terraform?**
 
-    **Consistency**: Ensure infrastructure is always deployed the same way.
-    **Speed**: Automate repetitive tasks like ```terraform plan``` and ```terraform apply```.
-    **Collaboration**: Enable team members to review and approve changes.
+- **Consistency**: Ensure infrastructure is always deployed the same way.
+- **Speed**: Automate repetitive tasks like ```terraform plan``` and ```terraform apply```.
+- **Collaboration**: Enable team members to review and approve changes.
 
 ### STEPS
 
